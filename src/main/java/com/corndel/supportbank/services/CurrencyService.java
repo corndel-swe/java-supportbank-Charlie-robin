@@ -2,7 +2,6 @@ package com.corndel.supportbank.services;
 
 import picocli.CommandLine;
 
-
 @CommandLine.Command(name = "convert")
 public class CurrencyService implements Runnable {
     @CommandLine.Parameters(index = "0")

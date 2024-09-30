@@ -1,5 +1,7 @@
 package com.corndel.supportbank.models;
 
+// DATA MODEL
+// Bill
 
 public class Bill {
 
@@ -17,15 +19,14 @@ public class Bill {
         this.price = price;
     }
 
+    public double split(double people) {
+        return price / people;
+    }
+
     @Override
     public String toString() {
         return "Bill{" +
                 ", price=" + price +
                 '}';
-    }
-
-
-    public double split(double people) {
-        return price / people;
     }
 }
