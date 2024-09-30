@@ -4,11 +4,11 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 
-@Command(name = "hello", subcommands = {ColorCommand.class})
+@Command(name = "hello")
 public class HelloWorld implements Runnable {
 
     @Parameters(index = "0", defaultValue = "World")
-    private String end;
+    private String command;
 
     public static void main(String[] args) {
         CommandLine commandLine = new CommandLine(new HelloWorld());
@@ -18,6 +18,12 @@ public class HelloWorld implements Runnable {
 
     @Override
     public void run() {
-        System.out.printf("Hello, %s!%n", end);
+        if(command.equals("color")){
+            new ColorCommand().run();
+        } else if (command.equals("random")) {
+            new RandomNumberCommand().run();
+        } else {
+            System.out.println("Hello " + command);
+        }
     }
 }
