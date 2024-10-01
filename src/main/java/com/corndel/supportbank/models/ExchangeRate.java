@@ -5,11 +5,31 @@ import java.util.Map;
 
 public class ExchangeRate {
 
-    private Map<String, Double> exchangeRate;
+    private final Map<String, Double> exchangeRate;
+    private final Map<String, Character> currency;
 
     public ExchangeRate() {
         exchangeRate = new HashMap<>();
-        exchangeRate.put("USD-GBP", .75);
-        exchangeRate.put("GBP-USD", 1.34);
+        exchangeRate.put(getKey("USD", "GBP"), .75);
+        exchangeRate.put(getKey("GBP", "USD"), 1.34);
+        currency = new HashMap<>();
+        currency.put("GBP", '£');
+        currency.put("USD", '$');
+    }
+
+    public Character getCurrency(String country) {
+        return currency.get(country);
+    }
+
+    public double getExchangeRate(String from, String to) {
+        return getExchangeRate(getKey(from, to));
+    }
+
+    public double getExchangeRate(String key) {
+        return exchangeRate.getOrDefault(key, 0d);
+    }
+
+    private String getKey(String from, String to) {
+        return from + "-" + to;
     }
 }
