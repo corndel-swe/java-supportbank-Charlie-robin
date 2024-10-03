@@ -3,7 +3,10 @@ package com.corndel.supportbank.exercises;
 // import kong.unirest.Unirest;
 
 // import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import kong.unirest.Unirest;
 
 /**
  * This class represents a Pokemon. It uses Java's record syntax to
@@ -11,10 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * See this url for more info:
  * https://www.baeldung.com/java-record-keyword
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-record Pokemon(Integer id, String name, Integer height, Integer weight) {
-}
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+ record Pokemon(Integer id, String name, Integer height, Integer weight) {
+}
 public class PokeAPI {
   /**
    * Get a Pokemon by its name.
@@ -27,15 +30,21 @@ public class PokeAPI {
    */
   public static Pokemon getPokemonByName(String name) throws Exception {
     // TODO: Create the url by appending the name to the base url
-
+    String url = "https://pokeapi.co/api/v2/pokemon/" + name;
     // TODO: Make a GET request to the url
     // Hint: Use Unirest.get()
+    var response = Unirest
+            .get(url)
+            .header("Accept", "application/json")
+            .asString();
+
+    String json = response.getBody();
 
     // TODO: Parse the response body into a Pokemon object
     // Hint: Use Jackson's ObjectMapper to map the response body to Pokemon.class
-
+    ObjectMapper mapper = new ObjectMapper();
     // TODO: Return the Pokemon
-    return null;
+    return mapper.readValue(json, Pokemon.class);
   }
 
   /**

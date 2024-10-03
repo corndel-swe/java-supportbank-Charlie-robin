@@ -1,20 +1,16 @@
-package com.corndel.supportbank.services;
+package com.corndel.supportbank.controllers.commands;
 
 import com.corndel.supportbank.models.Bill;
 import picocli.CommandLine;
 
-// SERVICE
-// APPLICATION LOGIC DOING SOMETHING
-
 @CommandLine.Command(name = "split")
-public class BillService implements Runnable {
+public class SplitCommand implements Runnable {
 
     @CommandLine.Parameters(index = "0")
     private double price;
 
     @CommandLine.Parameters(index = "1")
     private double people;
-
 
     @Override
     public void run() {

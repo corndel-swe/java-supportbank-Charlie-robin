@@ -1,10 +1,9 @@
 package com.corndel.supportbank.controllers;
 
-import com.corndel.supportbank.services.CurrencyService;
+import com.corndel.supportbank.controllers.commands.CurrencyCommand;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "currency", subcommands = {CurrencyService.class})
+@CommandLine.Command(name = "currency", subcommands = {CurrencyCommand.class})
 public class CurrencyController {
-
 }
 

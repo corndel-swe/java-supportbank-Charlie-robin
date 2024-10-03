@@ -1,4 +1,4 @@
-package com.corndel.supportbank;
+package com.corndel.supportbank.examples;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;

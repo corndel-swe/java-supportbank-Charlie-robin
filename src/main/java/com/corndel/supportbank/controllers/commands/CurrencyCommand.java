@@ -1,10 +1,10 @@
-package com.corndel.supportbank.services;
+package com.corndel.supportbank.controllers.commands;
 
 import com.corndel.supportbank.models.ExchangeRate;
 import picocli.CommandLine;
 
 @CommandLine.Command(name = "convert")
-public class CurrencyService implements Runnable {
+public class CurrencyCommand implements Runnable {
     @CommandLine.Parameters(index = "0")
     private int amount;
 

@@ -26,7 +26,7 @@ public class Bill {
     @Override
     public String toString() {
         return "Bill{" +
-                ", price=" + price +
+                "price=" + price +
                 '}';
     }
 }
