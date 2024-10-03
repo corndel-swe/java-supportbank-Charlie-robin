@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ExchangeRate {
-    private String base = "USD";
-    private String currency;
-    private double rate;
+    private final String base = "USD";
+    private final String currency;
+    private final double rate;
 
     public ExchangeRate(String currency, double rate) {
         this.currency = currency;
@@ -17,24 +17,21 @@ public class ExchangeRate {
         return base;
     }
 
-    public void setBase(String base) {
-        this.base = base;
-    }
-
     public String getCurrency() {
         return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
     }
 
     public double getRate() {
         return rate;
     }
 
-    public void setRate(double rate) {
-        this.rate = rate;
+    public void print() {
+        System.out.printf("%s to %s is %.2f\n", base, currency, rate);
+    }
+
+    public void printExchange(double amount) {
+        print();
+        System.out.printf("%.2f %s to %s is %.2f\n", amount, base, currency, amount * rate);
     }
 
     @Override
@@ -45,4 +42,5 @@ public class ExchangeRate {
                 ", rate=" + rate +
                 '}';
     }
+
 }

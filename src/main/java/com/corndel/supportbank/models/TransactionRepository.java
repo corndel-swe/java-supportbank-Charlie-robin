@@ -1,6 +1,6 @@
 package com.corndel.supportbank.models;
 
-import com.corndel.supportbank.utils.Loader;
+import com.corndel.supportbank.utils.file.Loader;
 
 import java.io.IOException;
 import java.util.List;

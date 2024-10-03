@@ -3,8 +3,8 @@ package com.corndel.supportbank.controllers.commands;
 import com.corndel.supportbank.models.Transaction;
 import com.corndel.supportbank.models.TransactionRepository;
 import com.corndel.supportbank.services.TransactionService;
-import com.corndel.supportbank.utils.Loader;
-import com.corndel.supportbank.utils.LoaderFactory;
+import com.corndel.supportbank.utils.file.Loader;
+import com.corndel.supportbank.utils.file.LoaderFactory;
 import picocli.CommandLine;
 
 import java.io.IOException;

@@ -1,39 +1,28 @@
 package com.corndel.supportbank.controllers.commands;
 
+import com.corndel.supportbank.models.ExchangeRate;
+import com.corndel.supportbank.models.ExchangeRateRepository;
+import com.corndel.supportbank.utils.api.CurrencyRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.cdimascio.dotenv.Dotenv;
-import kong.unirest.Unirest;
 import picocli.CommandLine;
 
-import java.util.Map;
+
+// CONFIG : currency latest
 
 @CommandLine.Command(name = "latest")
 public class LatestCommand implements Runnable {
 
     @Override
     public void run() {
-        Dotenv dotenv = Dotenv.load();
-        String url = "https://openexchangerates.org/api/latest.json?app_id=" + dotenv.get("OPEN_EXCHANGE_RATES_APP_ID");
-
-        var response = Unirest
-                .get(url)
-                .header("Accept", "application/json")
-                .asString();
-
-        String json = response.getBody();
-
-        ObjectMapper mapper = new ObjectMapper();
         try {
-            String rates = mapper.readTree(json).get("rates").toString();
-            System.out.println(mapper.readValue(rates, new TypeReference<Map<String, Double>>() {
-            }));
+            CurrencyRequest currencyRequest = new CurrencyRequest();
+            ExchangeRateRepository exchangeRateRepository = new ExchangeRateRepository(currencyRequest.getLatestRates());
+
+            System.out.println("Printing Latest USD exchange rates");
+            exchangeRateRepository.getExchangeRates().forEach(ExchangeRate::print);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public static void main(String[] args) {
