@@ -1,6 +1,6 @@
 package com.corndel.supportbank.controllers.commands;
 
-import com.corndel.supportbank.models.ExchangeRate;
+import com.corndel.supportbank.models.ExchangeRateRepository;
 import picocli.CommandLine;
 
 @CommandLine.Command(name = "convert")
@@ -16,7 +16,7 @@ public class CurrencyCommand implements Runnable {
 
     @Override
     public void run() {
-        ExchangeRate exchangeRate = new ExchangeRate();
+        ExchangeRateRepository exchangeRate = new ExchangeRateRepository();
         double exchange = exchangeRate.getExchangeRate(from, to);
         System.out.printf("%c%d %s to %s is %c%.2f", exchangeRate.getCurrency(from) ,amount, from, to, exchangeRate.getCurrency(to), amount * exchange);
     }

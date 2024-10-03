@@ -18,12 +18,12 @@ public class HelloWorld implements Runnable {
 
     @Override
     public void run() {
-        if(command.equals("color")){
+        if (command.equals("color")) {
             new ColorCommand().run();
         } else if (command.equals("random")) {
             new RandomNumberCommand().run();
         } else {
-            System.out.println("Hello " + command);
+            System.out.println("Hello, " + command + "!");
         }
     }
 }

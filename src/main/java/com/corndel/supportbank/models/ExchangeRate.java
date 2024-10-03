@@ -1,35 +1,48 @@
 package com.corndel.supportbank.models;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ExchangeRate {
+    private String base = "USD";
+    private String currency;
+    private double rate;
 
-    private final Map<String, Double> exchangeRate;
-    private final Map<String, Character> currency;
-
-    public ExchangeRate() {
-        exchangeRate = new HashMap<>();
-        exchangeRate.put(getKey("USD", "GBP"), .75);
-        exchangeRate.put(getKey("GBP", "USD"), 1.34);
-        currency = new HashMap<>();
-        currency.put("GBP", '£');
-        currency.put("USD", '$');
+    public ExchangeRate(String currency, double rate) {
+        this.currency = currency;
+        this.rate = rate;
     }
 
-    public Character getCurrency(String country) {
-        return currency.get(country);
+    public String getBase() {
+        return base;
     }
 
-    public double getExchangeRate(String from, String to) {
-        return getExchangeRate(getKey(from, to));
+    public void setBase(String base) {
+        this.base = base;
     }
 
-    public double getExchangeRate(String key) {
-        return exchangeRate.getOrDefault(key, 0d);
+    public String getCurrency() {
+        return currency;
     }
 
-    private String getKey(String from, String to) {
-        return from + "-" + to;
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+
+    @Override
+    public String toString() {
+        return "ExchangeRate{" +
+                "base='" + base + '\'' +
+                ", currency='" + currency + '\'' +
+                ", rate=" + rate +
+                '}';
     }
 }
