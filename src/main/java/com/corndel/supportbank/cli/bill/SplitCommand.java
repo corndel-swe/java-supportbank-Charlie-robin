@@ -1,4 +1,4 @@
-package com.corndel.supportbank.controllers.commands;
+package com.corndel.supportbank.cli.bill;
 
 import com.corndel.supportbank.models.Bill;
 import picocli.CommandLine;

@@ -1,9 +1,9 @@
 package com.corndel.supportbank;
 
-import com.corndel.supportbank.controllers.BillController;
-import com.corndel.supportbank.controllers.CurrencyController;
-import com.corndel.supportbank.controllers.InvestController;
-import com.corndel.supportbank.controllers.TransactionController;
+import com.corndel.supportbank.cli.bill.BillController;
+import com.corndel.supportbank.cli.currency.CurrencyController;
+import com.corndel.supportbank.cli.invest.InvestController;
+import com.corndel.supportbank.cli.transaction.TransactionController;
 import com.github.tomaslanger.chalk.Chalk;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;

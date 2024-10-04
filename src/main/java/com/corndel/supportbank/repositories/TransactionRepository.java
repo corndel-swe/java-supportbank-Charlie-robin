@@ -1,5 +1,6 @@
-package com.corndel.supportbank.models;
+package com.corndel.supportbank.repositories;
 
+import com.corndel.supportbank.models.Transaction;
 import com.corndel.supportbank.utils.file.Loader;
 
 import java.io.IOException;

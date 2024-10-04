@@ -1,7 +1,7 @@
-package com.corndel.supportbank.controllers.commands;
+package com.corndel.supportbank.cli.currency;
 
 import com.corndel.supportbank.models.ExchangeRate;
-import com.corndel.supportbank.models.ExchangeRateRepository;
+import com.corndel.supportbank.repositories.ExchangeRateRepository;
 import com.corndel.supportbank.utils.api.CurrencyRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import picocli.CommandLine;

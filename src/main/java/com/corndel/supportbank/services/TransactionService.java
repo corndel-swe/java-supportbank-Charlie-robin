@@ -1,7 +1,7 @@
 package com.corndel.supportbank.services;
 
 import com.corndel.supportbank.models.Transaction;
-import com.corndel.supportbank.models.TransactionRepository;
+import com.corndel.supportbank.repositories.TransactionRepository;
 
 import java.io.IOException;
 import java.util.HashMap;

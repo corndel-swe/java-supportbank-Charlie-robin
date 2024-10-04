@@ -1,10 +1,11 @@
-package com.corndel.supportbank.controllers.commands;
+package com.corndel.supportbank.cli.invest;
+
 
 import com.corndel.supportbank.models.Interest;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "simple")
-public class SimpleCommand implements Runnable {
+@CommandLine.Command(name = "compound")
+public class CompoundCommand implements Runnable {
 
     @CommandLine.Parameters(index = "0", description = "The amount to invest")
     private int amount;
@@ -17,7 +18,7 @@ public class SimpleCommand implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Calculating simple interest for amount: " + amount + ", rate: " + rate + "%, over " + years + " years.");
+        System.out.println("Calculating compound interest for amount: " + amount + ", rate: " + rate + "%, over " + years + " years.");
         Interest interest = new Interest(amount, rate, years);
         System.out.println(interest.compound());
     }

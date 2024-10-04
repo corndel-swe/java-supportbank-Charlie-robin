@@ -1,4 +1,6 @@
-package com.corndel.supportbank.models;
+package com.corndel.supportbank.repositories;
+
+import com.corndel.supportbank.models.ExchangeRate;
 
 import java.util.ArrayList;
 import java.util.List;

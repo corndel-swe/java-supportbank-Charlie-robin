@@ -1,7 +1,6 @@
 
-package com.corndel.supportbank.controllers;
+package com.corndel.supportbank.cli.bill;
 
-import com.corndel.supportbank.controllers.commands.SplitCommand;
 import picocli.CommandLine.Command;
 
 @Command(name = "bill", subcommands = SplitCommand.class)
